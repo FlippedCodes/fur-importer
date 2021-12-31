@@ -3,6 +3,10 @@
     "target": "esnext",
     "rootDir": "./src",
     "outDir": "./dist",
-    "module": "CommonJS"
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "declaration": true,
+    "esModuleInterop": true
   }
 }
