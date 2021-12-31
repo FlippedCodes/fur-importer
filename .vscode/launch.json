@@ -13,10 +13,11 @@
       ],
       "program": "${workspaceFolder}\\dist\\index.js",
       "runtimeArgs": [
-        "--experimental-json-modules",
+        // "--experimental-json-modules",
         "--experimental-specifier-resolution=node",
-        "--no-warnings"
+        // "--no-warnings"
       ],
+      "envFile": "${workspaceFolder}/.env",
       "preLaunchTask": "tsc: build - tsconfig.json",
       "outFiles": [
         "${workspaceFolder}/dist/**/*.js"
