@@ -1,0 +1,19 @@
+{
+  "fa": {
+    "interval": 20,
+    "maxCache": 100,
+    "blacklist": [
+      "ych",
+      "reminder",
+      "stream",
+      "preview",
+      "telegram",
+      "sticker",
+      "discord",
+      "auction",
+      "adopt",
+      "patreon",
+      "raffle"
+    ]
+  }
+}
