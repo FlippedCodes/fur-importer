@@ -2,7 +2,7 @@ import * as config from './config.json';
 
 import {
   getPosts, setup as FAsetup, postHandle, cleanupCache,
-} from './modules/fahandle_';
+} from './modules/faHandle';
 
 async function loop() {
   setInterval(async () => {
