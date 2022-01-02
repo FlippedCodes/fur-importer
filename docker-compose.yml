@@ -5,10 +5,6 @@ services:
       context: ./
     restart: always
     environment:
-      DCtoken: ${DISCORD_BOT_TOKEN}
-      DBdatabase: gurglebot
-      DBhost: gurglebot_db_gb_1
-      DBusername: gurglebot
-      DBpassword: ${DB_PASSWORD}
       FACookieA: ${FACookieA}
       FACookieB: ${FACookieB}
+      szuruToken: ${szuruToken}
