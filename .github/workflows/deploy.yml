@@ -14,6 +14,7 @@ jobs:
     env:
       FACookieA: ${{ secrets.FACookieA }}
       FACookieB: ${{ secrets.FACookieB }}
+      szuruToken: ${{ secrets.szuruToken }}
 
     steps:
       - uses: actions/checkout@v2
