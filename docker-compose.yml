@@ -7,4 +7,5 @@ services:
     environment:
       FACookieA: ${FACookieA}
       FACookieB: ${FACookieB}
+      szuruUser: ${szuruUser}
       szuruToken: ${szuruToken}

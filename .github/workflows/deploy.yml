@@ -14,6 +14,7 @@ jobs:
     env:
       FACookieA: ${{ secrets.FACookieA }}
       FACookieB: ${{ secrets.FACookieB }}
+      szuruUser: ${{ secrets.szuruUser }}
       szuruToken: ${{ secrets.szuruToken }}
 
     steps:
