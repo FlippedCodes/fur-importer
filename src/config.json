@@ -1,4 +1,8 @@
 {
+  "szuru": {
+    "endpoint": "http://10.10.0.3/api/",
+    "host": "10.10.0.3:80"
+  },
   "fa": {
     "interval": 20,
     "maxCache": 100,
@@ -13,7 +17,10 @@
       "auction",
       "adopt",
       "patreon",
-      "raffle"
+      "raffle",
+      "poll",
+      "open",
+      "livestream"
     ]
   }
 }
