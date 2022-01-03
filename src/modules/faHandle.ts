@@ -1,12 +1,12 @@
 import { Login, Submissions } from 'furaffinity-api';
 
-import * as config from '../config.json';
+import config from '../config.json';
 
 // create cache array
 const cache: number[] = [];
 
 // check cache and and push if not there
-async function checkCache(id: number) {
+export async function checkCache(id: number) {
   if (!cache.includes(id)) {
     cache.push(id);
     return false;
@@ -29,13 +29,6 @@ export async function setup() {
   const initList = await getPosts();
   // cache all known posts
   initList.map((post) => cache.push(parseInt(post.id, 10)));
-}
-
-// handle post and cache checking
-export async function postHandle(post) {
-  const id = parseInt(post.id, 10);
-  if (await checkCache(id)) return;
-  console.log(post);
 }
 
 // garbadge colletion: removed old posts to prevent memory leak
