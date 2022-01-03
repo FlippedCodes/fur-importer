@@ -42,10 +42,11 @@ export async function createPost(contentUrl: string, tags: string[], artist: str
   // upload file
   const contentToken = await upload(contentUrl);
   if (await validate(contentToken)) return null;
-  // bundle tags
+  // bundle tags and make lowercase
   tags.push(artist);
+  const updatedTags = tags.map((tag) => tag.toLowerCase());
   // upload post
-  const postOut = await api.post('posts/', { tags, safety, contentToken });
+  const postOut = await api.post('posts/', { updatedTags, safety, contentToken });
   // update special tags
   await updateTag(artist);
   // update desc
