@@ -7,7 +7,6 @@
     "interval": 20,
     "maxCache": 100,
     "blacklist": [
-      "ych",
       "reminder",
       "stream",
       "preview",
@@ -20,7 +19,8 @@
       "raffle",
       "poll",
       "open",
-      "livestream"
+      "livestream",
+      "$"
     ]
   }
 }
