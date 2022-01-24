@@ -27,7 +27,7 @@ async function loop() {
     // get latest posts
     const posts = await getPosts();
     // run through all of them
-    await posts.forEach((post, i) => {
+    await posts.reverse().forEach((post, i) => {
       setTimeout(async () => {
         const id = parseInt(post.id, 10);
         // check cache
