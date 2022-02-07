@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "furaffinity-api": "^4.1.0"
+    "furaffinity-api": "^4.3.0"
   }
 }
