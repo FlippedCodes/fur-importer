@@ -51,8 +51,7 @@ export async function createPost(submission, safety: maturity) {
   // update special tags
   await updateTag(submission.author.id);
   // update desc
-  // TODO: not in scraper yet, DYI?
-  // if (desc) await api.post('comments/', { text: desc, postId: postOut.data.id });
+  if (submission.description) await api.post('comments/', { text: submission.description, postId: postOut.data.id });
   return postOut.data;
 }
 
