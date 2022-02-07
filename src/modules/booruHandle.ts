@@ -38,18 +38,18 @@ async function validate(contentToken: string) {
   return output.data.exactPost;
 }
 
-export async function createPost(contentUrl: string, tags: string[], artist: string, safety: maturity, source: string, desc?: string) {
+export async function createPost(submission, safety: maturity) {
   // upload file
-  const contentToken = await upload(contentUrl);
+  const contentToken = await upload(submission.downloadUrl);
   if (await validate(contentToken)) return null;
   // bundle tags and make lowercase
-  tags.push(artist);
+  submission.keywords.push(submission.author.id);
   // upload post
   const postOut = await api.post('posts/', {
-    tags, safety, contentToken, source,
+    tags: submission.keywords, safety, contentToken, source: submission.url,
   });
   // update special tags
-  await updateTag(artist);
+  await updateTag(submission.author.id);
   // update desc
   // TODO: not in scraper yet, DYI?
   // if (desc) await api.post('comments/', { text: desc, postId: postOut.data.id });

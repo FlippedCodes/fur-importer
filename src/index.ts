@@ -41,7 +41,7 @@ async function loop() {
         submission.keywords.push(...append);
         submission.keywords.push(new Date().getFullYear().toString());
         // add to collection
-        await createPost(submission.downloadUrl, submission.keywords, submission.author.id, getSafety(submission.rating), submission.url);
+        await createPost(submission, getSafety(submission.rating));
         // wait a secound between requests
       }, 10000 * i);
     });
