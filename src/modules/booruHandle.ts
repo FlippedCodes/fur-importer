@@ -21,11 +21,9 @@ const api = axios.create({
   },
 });
 
-async function updateTag(tagName: string) {
-  // get tag version
-  const output = await api.get(`tag/${tagName}`);
-  // update tag
-  await api.put(`tag/${tagName}`, { version: output.data.version, category: 'artist' });
+async function getStory(url) {
+  const output = await axios.get(url);
+  return output;
 }
 
 async function upload(contentUrl: string) {
@@ -38,7 +36,7 @@ async function validate(contentToken: string) {
   return output.data.exactPost;
 }
 
-export async function createPost(submission, safety: maturity) {
+export async function createPost(submission, safety: maturity, storyUrl?) {
   // upload file
   const contentToken = await upload(submission.downloadUrl);
   if (await validate(contentToken)) return null;
@@ -48,10 +46,19 @@ export async function createPost(submission, safety: maturity) {
   const postOut = await api.post('posts/', {
     tags: submission.keywords, safety, contentToken, source: submission.url,
   });
-  // update special tags
-  await updateTag(submission.author.id);
+  let desc = submission.description;
+  if (storyUrl) {
+    const extention = storyUrl.substr(submission.downloadUrl.length - 4);
+    const story = extention === '.txt' ? await getStory(storyUrl) : storyUrl;
+    desc = `
+      ${submission.description}
+  
+      Story
+      ==========================
+      ${story}`;
+  }
   // update desc
-  if (submission.description) await api.post('comments/', { text: submission.description, postId: postOut.data.id });
+  if (desc) await api.post('comments/', { text: desc, postId: postOut.data.id });
   return postOut.data;
 }
 
