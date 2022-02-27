@@ -95,7 +95,7 @@ async function cleanupDonePosts() {
     await deletePosts(del);
     console.log('Cleaned submissions');
     del = [];
-  }, 1800000);
+  }, 600000);
 }
 
 async function main() {
