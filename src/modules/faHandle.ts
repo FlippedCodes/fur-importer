@@ -1,7 +1,5 @@
 import { Login, Submissions, removeFromInbox } from 'furaffinity-api';
 
-import config from '../config.json';
-
 // get all submissions
 export async function getPosts() {
   const out = await Submissions();
