@@ -2,7 +2,7 @@ import { Login, Submissions, removeFromInbox } from 'furaffinity-api';
 
 // get all submissions
 export async function getPosts() {
-  const out = await Submissions();
+  const out = await Submissions({ sort: 'old' });
   return out;
 }
 

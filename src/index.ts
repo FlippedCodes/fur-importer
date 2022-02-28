@@ -84,7 +84,7 @@ async function start() {
       // get latest posts
       const posts = await getPosts();
       if (posts.length === 0) return;
-      await loopPosts(posts.reverse());
+      await loopPosts(posts);
     });
   }, 1800000);
 }
