@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: raspiserver
+    runs-on: self-hosted
 
     env:
       FACookieA: ${{ secrets.FACookieA }}
