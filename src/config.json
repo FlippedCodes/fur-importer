@@ -1,7 +1,7 @@
 {
   "szuru": {
-    "endpoint": "http://10.10.0.3/api/",
-    "host": "10.10.0.3:80"
+    "endpoint": "http://szuru_nginx_1/api/",
+    "host": "szuru_nginx_1:80"
   },
   "fa": {
     "interval": 20,

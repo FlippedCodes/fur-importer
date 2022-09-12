@@ -9,3 +9,8 @@ services:
       FACookieB: ${FACookieB}
       szuruUser: ${szuruUser}
       szuruToken: ${szuruToken}
+
+networks:
+  default:
+    external:
+      name: frp_backend
