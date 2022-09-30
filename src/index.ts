@@ -86,7 +86,7 @@ async function start() {
       if (posts.length === 0) return;
       await loopPosts(posts);
     });
-  }, 1800000);
+  }, 10800000);
 }
 
 async function cleanupDonePosts() {
@@ -95,7 +95,7 @@ async function cleanupDonePosts() {
     await deletePosts(del);
     console.log('Cleaned submissions');
     del = [];
-  }, 600000);
+  }, 3600000);
 }
 
 async function main() {
