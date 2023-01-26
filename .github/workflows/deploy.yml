@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: stardrive
 
     env:
       FACookieA: ${{ secrets.FACookieA }}
@@ -17,15 +17,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # - name: Update 3rd party docker containers
-      #   run: docker-compose pull
+      - name: Update 3rd party docker containers
+        run: docker-compose pull
 
-      # - name: Build app
-      #   run: docker-compose build
-
-      # - name: Spin up containers
-      #   run: docker-compose up -d
+      - name: Build app
+        run: docker-compose build
 
       - name: Spin up containers
-        run: docker-compose down
-
+        run: docker-compose up -d
