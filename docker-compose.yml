@@ -11,6 +11,5 @@ services:
       szuruToken: ${szuruToken}
 
 networks:
-  default:
-    external:
-      name: frp_backend
+  szurubooru_default:
+    external: true
