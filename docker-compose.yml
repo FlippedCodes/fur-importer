@@ -9,6 +9,8 @@ services:
       FACookieB: ${FACookieB}
       szuruUser: ${szuruUser}
       szuruToken: ${szuruToken}
+    networks:
+      - szurubooru_default
 
 networks:
   szurubooru_default:
