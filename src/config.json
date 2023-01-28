@@ -4,8 +4,8 @@
     "host": "szurubooru-nginx-1:80"
   },
   "fa": {
-    "interval": 15,
-    "cleanupInterval": 10,
+    "interval": 180,
+    "cleanupInterval": 60,
     "blacklist": [
       "reminder",
       "stream",
