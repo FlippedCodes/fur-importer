@@ -86,7 +86,8 @@ async function start() {
       if (posts.length === 0) return;
       await loopPosts(posts);
     });
-  }, 10800000);
+    // convert minutes into MS
+  }, config.fa.interval * 60000);
 }
 
 async function cleanupDonePosts() {
@@ -95,7 +96,8 @@ async function cleanupDonePosts() {
     await deletePosts(del);
     console.log('Cleaned submissions');
     del = [];
-  }, 3600000);
+    // convert minutes into MS
+  }, config.fa.cleanupInterval * 60000);
 }
 
 async function main() {
