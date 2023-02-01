@@ -1,7 +1,7 @@
 {
   "szuru": {
-    "endpoint": "http://szurubooru-nginx-1/api/",
-    "host": "szurubooru-nginx-1:80"
+    "endpoint": "http://szurubooru-app-1/api/",
+    "host": "szurubooru-app-1:80"
   },
   "fa": {
     "interval": 180,
