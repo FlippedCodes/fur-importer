@@ -4,8 +4,10 @@
     "host": "szurubooru-app-1:80"
   },
   "fa": {
-    "interval": 180,
-    "cleanupInterval": 60,
+    "intervalDefault": 180,
+    "interval": 10,
+    "cleanupIntervalDefault": 60,
+    "cleanupInterval": 5,
     "blacklist": [
       "reminder",
       "stream",

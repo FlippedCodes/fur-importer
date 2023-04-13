@@ -109,7 +109,7 @@ async function main() {
 
 main();
 
-// logging error; supress crash
+// logging error; suppress crash
 process.on('uncaughtException', (err) => {
   console.error('ERROR:', err);
 });
