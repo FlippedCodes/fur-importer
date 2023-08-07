@@ -1,7 +1,7 @@
 {
   "szuru": {
-    "endpoint": "http://szurubooru-app-1/api/",
-    "host": "szurubooru-app-1:80"
+    "endpoint": "http://snickerdoodle.fritz.box:20080/api/",
+    "host": "snickerdoodle.fritz.box:20080"
   },
   "fa": {
     "intervalDefault": 180,

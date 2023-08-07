@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: stardrive
+    runs-on: philtower
 
     env:
       FACookieA: ${{ secrets.FACookieA }}
