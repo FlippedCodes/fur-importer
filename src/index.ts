@@ -78,6 +78,15 @@ async function loopPosts(posts) {
 }
 
 async function start() {
+  // TEMP: debug intermediate
+  await mainQ.add(async () => {
+    console.log('New page!');
+    // get latest posts
+    const posts = await getPosts();
+    if (posts.length === 0) return;
+    await loopPosts(posts);
+  });
+
   setInterval(async () => {
     await mainQ.add(async () => {
       console.log('New page!');
