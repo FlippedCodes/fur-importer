@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import config from '../config.json';
+import config from '../config.json' assert { type: 'json' };
 
 type maturity = 'safe' | 'sketchy' | 'unsafe';
 

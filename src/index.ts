@@ -4,7 +4,7 @@ import { getPosts, setup as FAsetup, deletePosts } from './modules/faHandle';
 
 import { createPost } from './modules/booruHandle';
 
-import config from './config.json';
+import config from './config.json' assert { type: 'json' };
 
 const mainQ = new PQueue({ concurrency: 1 });
 
