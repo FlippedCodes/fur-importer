@@ -21,8 +21,7 @@
       "raffle",
       "poll",
       "open",
-      "livestream",
-      "$"
+      "livestream"
     ]
   }
 }
