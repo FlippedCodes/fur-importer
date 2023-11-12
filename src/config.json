@@ -1,7 +1,7 @@
 {
   "szuru": {
-    "endpoint": "http://snickerdoodle.fritz.box:20080/api/",
-    "host": "snickerdoodle.fritz.box:20080"
+    "endpoint": "https://imagearchive.flipped.codes/api/",
+    "host": "imagearchive.flipped.codes:443"
   },
   "fa": {
     "intervalDefault": 180,
