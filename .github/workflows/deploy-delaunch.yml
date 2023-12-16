@@ -1,0 +1,15 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: philtower
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Update 3rd party docker containers
+        run: docker compose down
