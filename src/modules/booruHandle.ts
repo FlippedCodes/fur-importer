@@ -44,7 +44,7 @@ export async function createPost(submission, safety: maturity, storyUrl?) {
   submission.keywords.push(submission.author.id);
   // upload post
   const postOut = await api.post('posts/', {
-    tags: submission.keywords, safety, contentToken, source: submission.url,
+    tags: submission.keywords, safety, contentToken, source: submission.url.replace('http:', 'https:'),
   });
   let desc = submission.description;
   if (storyUrl) {
