@@ -4,6 +4,8 @@ services:
     build:
       context: ./
     restart: always
+    extra_hosts:
+      - "imagearchive.flipped.codes:10.10.0.5"
     environment:
       FACookieA: ${FACookieA}
       FACookieB: ${FACookieB}
