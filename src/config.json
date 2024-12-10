@@ -5,7 +5,7 @@
   },
   "fa": {
     "intervalDefault": 180,
-    "interval": 180,
+    "interval": 30,
     "cleanupIntervalDefault": 60,
     "cleanupInterval": 60,
     "blacklist": [
