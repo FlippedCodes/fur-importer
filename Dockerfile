@@ -11,7 +11,7 @@ COPY tsconfig.json ./
 COPY src ./src
 
 # install all dependencies
-RUN npm install
+RUN npm install --include dev
 
 # compile code
 RUN npm run build
@@ -26,7 +26,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # get prod dependencies
-RUN npm install --only=production
+RUN npm ci --omit=dev
 
 # copy binary files
 COPY --from=0 /usr/src/app/dist .
