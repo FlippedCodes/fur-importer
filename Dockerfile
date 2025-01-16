@@ -5,13 +5,15 @@ FROM node:18.5-buster-slim
 # Create compile directory
 WORKDIR /usr/src/app
 
-# copy config files and source code
+# copy config files
 COPY package*.json ./
 COPY tsconfig.json ./
-COPY src ./src
 
 # install all dependencies
 RUN npm install --include dev
+
+# copy source code
+COPY src ./src
 
 # compile code
 RUN npm run build
