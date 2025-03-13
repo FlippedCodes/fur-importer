@@ -1,8 +1,8 @@
 import PQueue from 'p-queue';
 
-import { getPosts, setup as FAsetup, deletePosts } from './modules/faHandle';
+import { getPosts, setup as FAsetup, deletePosts } from './modules/faHandle.js';
 
-import { createPost } from './modules/booruHandle';
+import { createPost } from './modules/booruHandle.js';
 
 import config from './config.json' assert { type: 'json' };
 

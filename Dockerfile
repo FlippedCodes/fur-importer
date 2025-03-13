@@ -1,6 +1,6 @@
 # RUN 1: compile
 # get node version 18
-FROM node:18.5-buster-slim
+FROM node:20.16-buster-slim
 
 # Create compile directory
 WORKDIR /usr/src/app
