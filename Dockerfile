@@ -1,6 +1,6 @@
 # RUN 1: compile
-# get node version 18
-FROM node:20.16-buster-slim
+# get node version 20
+FROM node:20.19.0-bullseye-slim as build
 
 # Create compile directory
 WORKDIR /usr/src/app
@@ -19,8 +19,8 @@ COPY src ./src
 RUN npm run build
 
 # RUN 2: cleanup
-# get node version 18
-FROM node:18.5-buster-slim
+# get node version 20
+FROM node:20.19.0-bullseye-slim
 
 WORKDIR /usr/src/app
 
@@ -31,7 +31,7 @@ COPY package*.json ./
 RUN npm ci --omit=dev
 
 # copy binary files
-COPY --from=0 /usr/src/app/dist .
+COPY --from=build /usr/src/app/dist .
 
 # start up the bot
 CMD [ "npm", "start" ]
