@@ -39,13 +39,18 @@ async function validate(contentToken: string) {
 export async function createPost(submission, safety: maturity, storyUrl?) {
   // upload file
   const contentToken = await upload(submission.downloadUrl);
-  if (await validate(contentToken)) return null;
-  // bundle tags and make lowercase
-  submission.keywords.push(submission.author.id);
-  // upload post
-  const postOut = await api.post('posts/', {
-    tags: submission.keywords, safety, contentToken, source: submission.url.replace('http:', 'https:'),
-  });
+  const samePost = await validate(contentToken);
+  if (samePost && !storyUrl) return null;
+  let postOut = samePost;
+  if (!samePost) {
+    // bundle tags and make lowercase
+    submission.keywords.push(submission.author.id);
+    // upload post
+    const postOutRaw = await api.post('posts/', {
+      tags: submission.keywords, safety, contentToken, source: submission.url.replace('http:', 'https:'),
+    });
+    postOut = postOutRaw.data;
+  }
   let desc = submission.description;
   if (storyUrl) {
     const extention = storyUrl.substr(submission.downloadUrl.length - 4);
@@ -58,8 +63,8 @@ export async function createPost(submission, safety: maturity, storyUrl?) {
       ${story}`;
   }
   // update desc
-  if (desc) await api.post('comments/', { text: desc, postId: postOut.data.id });
-  return postOut.data;
+  if (desc) await api.post('comments/', { text: desc, postId: postOut.id });
+  return postOut;
 }
 
 export { createPost as default };
