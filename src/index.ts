@@ -8,7 +8,8 @@ import config from './config.json' assert { type: 'json' };
 
 const mainQ = new PQueue({ concurrency: 1 });
 
-const postQ = new PQueue({ concurrency: 3 });
+// const postQ = new PQueue({ concurrency: 3 });
+const postQ = new PQueue({ concurrency: 1 });
 
 let del = [];
 
