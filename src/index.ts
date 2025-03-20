@@ -33,10 +33,12 @@ async function addSubmission(post) {
   const submission = await post.getSubmission();
   // check blacklisted words in title
   if (!await checkBlacklist(submission.title)) return 'blacklist';
-  // add additional tags
-  const append = submission.title.split(' ');
+  // add additional tags and remove special chars
+  const charFilter = /\[|\]|/g;
+  const append = [...submission.title.split(' '), new Date().getFullYear().toString()]
+    .map((tag) => tag.replaceAll(charFilter, ''))
+    .filter((tag) => tag !== '');
   submission.keywords.push(...append);
-  submission.keywords.push(new Date().getFullYear().toString());
   // check if content is a story
   if (submission.content.category === 13) {
     const storyUrl = submission.downloadUrl;
