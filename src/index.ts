@@ -37,7 +37,7 @@ async function addSubmission(post) {
   // add additional tags and remove special chars
   const charFilter = /\[|\]|/g;
   const append = [...submission.title.split(' '), new Date().getFullYear().toString()]
-    .map((tag) => tag.replaceAll(charFilter, ''))
+    .map((tag) => tag.toLowerCase().replaceAll(charFilter, ''))
     .filter((tag) => tag !== '');
   submission.keywords.push(...append);
   // check if content is a story
