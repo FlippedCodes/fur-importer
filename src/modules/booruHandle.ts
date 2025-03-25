@@ -47,7 +47,7 @@ export async function createPost(submission, safety: maturity, storyUrl?) {
     submission.keywords.push(submission.author.id);
     // de-duplicate tags
     const uniqueTags = new Set();
-    submission.keywords.forEach((element) => { if (uniqueTags.has(element)) uniqueTags.add(element); });
+    submission.keywords.forEach((element) => { if (!uniqueTags.has(element)) uniqueTags.add(element); });
     // upload post
     const postOutRaw = await api.post('posts/', {
       tags: [...uniqueTags], safety, contentToken, source: submission.url.replace('http:', 'https:'),
