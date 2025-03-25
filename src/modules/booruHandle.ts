@@ -45,9 +45,12 @@ export async function createPost(submission, safety: maturity, storyUrl?) {
   if (!samePost) {
     // bundle tags and make lowercase
     submission.keywords.push(submission.author.id);
+    // de-duplicate tags
+    const uniqueTags = new Set();
+    submission.keywords.forEach((element) => { if (uniqueTags.has(element)) uniqueTags.add(element); });
     // upload post
     const postOutRaw = await api.post('posts/', {
-      tags: submission.keywords, safety, contentToken, source: submission.url.replace('http:', 'https:'),
+      tags: [...uniqueTags], safety, contentToken, source: submission.url.replace('http:', 'https:'),
     });
     postOut = postOutRaw.data;
   }
